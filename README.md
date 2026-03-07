@@ -30,11 +30,24 @@ The repo is initialized and committed. To push to [portfolio2026](https://github
 4. Under **Branch**, select **main** and **/ (root)**.
 5. Click **Save**.
 
-After a minute or two, the site will be at:
+After a minute or two, the site will be at **https://laurenvachon.github.io/portfolio2026/** (or your custom domain once configured).
 
-**https://laurenvachon.github.io/portfolio2026/**
+## Custom domain
 
-(If the repo is under an organization or you use a custom domain, the URL may differ; GitHub will show it on the Pages settings screen.)
+1. **In GitHub:** Open the repo → **Settings** → **Pages**. Under **Custom domain**, type your domain (e.g. `portfolio.yourdomain.com` or `yourdomain.com`) and click **Save**. GitHub will add a `CNAME` file to your repo and show DNS instructions.
+
+2. **In your DNS provider** (where you bought the domain – e.g. Namecheap, Google Domains, Cloudflare):
+   - **If using a subdomain** (e.g. `portfolio.yourdomain.com`): Add a **CNAME** record: name = `portfolio` (or your subdomain), value = `laurenvachon.github.io`.
+   - **If using the apex/root** (e.g. `yourdomain.com`): Add **A** records pointing to GitHub’s IPs:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`  
+     Optionally add a **CNAME** for `www` → `laurenvachon.github.io` so `www.yourdomain.com` works.
+
+3. **Enforce HTTPS (recommended):** Back in **Settings** → **Pages**, check **Enforce HTTPS** after DNS has propagated (can take up to 24 hours).
+
+4. **Pull the CNAME file (if GitHub added it):** If GitHub created `CNAME` when you saved the custom domain, run `git pull` so your local repo has it; then future pushes will keep the custom domain set.
 
 ## Password
 
